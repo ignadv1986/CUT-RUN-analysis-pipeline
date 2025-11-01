@@ -69,7 +69,7 @@ Fragment size distribution analysis revealed a predominant enrichment of short D
 3) **SeqMonk/IGV visualization**
 Initial assessment of mapped reads in SeqMonk provided a quick quality check and overview of the data distribution across the genome, confirming CRAMP1´s DNA-binding and enrichment at histone locus bodies. This enrichment was abolished in the D1 mutant and, while still able to accumulate at this genomics regions, the SANT mutant was absent from H1 promoter [Figure 1](./graphs/CRAMP1_tracks.pdf)
 4) **Correlation analysis**
-Spearman correlation was applied to all replicates. The different replicates of each individual sample showed high correlation (>0.65), while demonstrating big differences between the different conditions, spacially for the D1 mutant [Figure 2](./graphs/Sample_correlation_heatmap_CRAMP1_CUTRUN.pdf).
+Spearman correlation was applied to all replicates. The different replicates of each individual sample showed high correlation (>0.65), while demonstrating big differences between the different conditions, specially for the D1 mutant [Figure 2](./graphs/Sample_correlation_heatmap_CRAMP1_CUTRUN.pdf).
 5) **Assessment of differences between WT and mutants**
 Peaks in WT samples were clearly enriched in promotor regions, with double the amount of peaks as compared to either SANT or D1 mutants, demonstrating the importance of both domains in CRAMP1´s role as a transcription factor. Additionally, most histone loci showed unique peaks in WT as compared to both mutants, with CRAMP1 SANT having a significant reduced peaks at H1 genes [Figure 3](./graphs/WT_vs_mutants_intersection.pdf)
 6) **Analysis of CRAMP1 enrichment at replication-dependent histones and H1 genes**
