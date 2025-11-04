@@ -49,28 +49,28 @@ Through CRISPR/Cas9 screens, we identified the previously uncharacterized protei
 - Only reads mapping to canonical chromosomes (1–22, X, and Y) were retained for further analysis.
 4. **Visualization and Replicate Assessment**
 - Initial visualization of mapped reads was done in SeqMonk.
-5. **Processing of Bam Files**
-- Bam files were filtered for standard chromosomes (1-22, X and Y).
-- Bam files were merged using samtools.
+5. **Processing of bam Files**
+- bam files were filtered for standard chromosomes (1-22, X and Y).
+- bam files were merged using samtools.
 6. **Generation of Coverage Tracks**
-- BigWig files were generated from BAMs with spike-in scaling applied.
+- bedgraph files were generated from processed bam files with bedtools genomecov and used for bigwig generation with bedGraphToBigWig.
 7. **Peak Calling, Replicate Assessment and Intersection Analysis**
-- Peaks were called form bam files on both merged replicates and individual samples using MACS2.
+- Peaks were called form bam files on both merged replicates and individual samples using SEACR.
 - Peaks present in at least 2 replicates of a sample were defined as consensus peaks using bedtools intersect and replicate correlation was assessed with multiBigWigSummary.
 - Unique and shared peaks between conditions were identified using bedtools intersect and visualized in R.
 8. **Binding Profile Analysis at Regions of Interest**
-- Binding at transcription start sites (TSS) was quantified using deepTools’ computeMatrix with reference to TSS.
+- Binding at transcription start sites (TSS) was quantified using deepTools computeMatrix with reference to TSS.
 - Profiles were plotted with plotProfile to compare binding patterns across different gene subsets.
 ## Results
 1) **Sample quality assessment**
-Quality assessment performed on pre-processed BAM files (after adapter trimming, quality filtering, and duplicate removal) showed exceptionally high alignment rates, with 100% of reads mapped and properly paired. No duplicates or secondary alignments were detected, confirming the efficacy of the preprocessing steps and the high quality of the final dataset for analysis.
+Quality assessment performed on pre-processed bam files (after adapter trimming, quality filtering, and duplicate removal) showed exceptionally high alignment rates, with 100% of reads mapped and properly paired. No duplicates or secondary alignments were detected, confirming the efficacy of the preprocessing steps and the high quality of the final dataset for analysis.
 2) **Fragment size distribution analysis**
 Fragment size distribution analysis revealed a predominant enrichment of short DNA fragments, mostly between 30 and 150 bp, consistent with the expected cleavage pattern in CUT&RUN assays. The presence of a strong peak around 50-60 bp suggests efficient targeting of sub-nucleosomal regions, supporting the high specificity and quality of the sample preparation.
 3) **SeqMonk/IGV visualization**
-Initial assessment of mapped reads in SeqMonk provided a quick quality check and overview of the data distribution across the genome, confirming CRAMP1´s DNA-binding and enrichment at histone locus bodies. This enrichment was abolished in the D1 mutant and, while still able to accumulate at this genomics regions, the SANT mutant was absent from H1 promoter [Figure 1](./graphs/CRAMP1_tracks.pdf)
+Initial assessment of mapped reads in SeqMonk provided a quick quality check and overview of the data distribution across the genome, confirming CRAMP1´s DNA-binding and enrichment at histone locus bodies. This enrichment was abolished in the D1 mutant and, while still able to accumulate at this genomics regions, the SANT mutant was absent from H1 promoters [Figure 1](./graphs/CRAMP1_tracks.pdf)
 4) **Correlation analysis**
 Spearman correlation was applied to all replicates. The different replicates of each individual sample showed high correlation (>0.65), while demonstrating big differences between the different conditions, specially for the D1 mutant [Figure 2](./graphs/Sample_correlation_heatmap_CRAMP1_CUTRUN.pdf).
 5) **Assessment of differences between WT and mutants**
-Peaks in WT samples were clearly enriched in promotor regions, with double the amount of peaks as compared to either SANT or D1 mutants, demonstrating the importance of both domains in CRAMP1´s role as a transcription factor. Additionally, most histone loci showed unique peaks in WT as compared to both mutants, with CRAMP1 SANT having a significant reduced peaks at H1 genes [Figure 3](./graphs/WT_vs_mutants_intersection.pdf)
+Peaks in WT samples were clearly enriched in promotor regions, with double the amount of peaks as compared to either SANT or D1 mutants, demonstrating the importance of both domains in CRAMP1´s role as a transcription factor. Additionally, most histone loci showed unique peaks in WT as compared to both mutants, with CRAMP1 SANT having a significant reduced number of peaks at H1 genes [Figure 3](./graphs/WT_vs_mutants_intersection.pdf)
 6) **Analysis of CRAMP1 enrichment at replication-dependent histones and H1 genes**
 CRAMP1 was highly enriched at H1 genes promoters as compared to both the SANT and the D1 mutants, while only the D1 mutation seemed to show a big impact in the overall recruitment of CRAMP1 to the promoters of replication-dependent histones [Figure 4](./graphs/CRAMP1_peaks.pdf).
